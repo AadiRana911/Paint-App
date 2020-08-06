@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neon Light Button</title>
+        <!-- <meta http-equiv="refresh" content="5"> -->
+        <link rel="stylesheet" href="../css/Signin.css">
+    </head>
+    <body>
+        <h1></h1>
+        <div class="shadow">
+            <h2>Login</h2>
+            <form method="POST" action="../php/Signin.php" autocomplete="off">
+                <input id="nothing" type="submit" name="signIn">
+                <input type="email" name="email" id="signInEmail" placeholder="Email Address"><br><br>
+                <input type="password" name="password" id="signInPassword" placeholder="Password"><br><br>
+                <a onclick="pressNothing()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Register
+                </a>        
+            </form>
+        </div>
+    </body>
+    <script>
+        function pressNothing(){
+            document.getElementById('nothing').click();
+        }
+    </script>
+</html>
