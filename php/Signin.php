@@ -22,7 +22,7 @@
                 $_SESSION['sess_user']=$user;  
   
                 /* Redirect browser */  
-                header("Location: ../html/entered.html");
+                header("Location: ../html/Canvas.html");
             }
         }else{
             echo "Invalid Username or Password";
