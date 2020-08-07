@@ -1,29 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="">
         <title>Canvas</title>
         <!-- <meta http-equiv="refresh" content="5"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <div class="face">
-            <div class="eyes">
-                <div class="eye"></div>
-                <div class="eye"></div>
+        <div class="toolbox left">
+            <div class="group commands">
+                <div class="item" data-command="undo" title="Undo">
+                    <img src="../images/icons/undo.png" alt="">
+                </div>
+                <div class="item" data-command="download" title="Download">
+                    <img src="../images/icons/download.png" alt="">
+                </div>
+            </div>
+            <div class="group shapes">
+                <div class="item active" data-tool="line" title="Line Tool">
+                    <img src="../images/icons/line.png" alt="">
+                </div>
+                <div class="item" data-tool="rectangle" title="Rectangle Tool">
+                    <img src="../images/icons/rectangle.png" alt="">
+                </div>
+                <div class="item" data-tool="circle" title="Circle Tool">
+                    <img src="../images/icons/circle.png" alt="">
+                </div>
+                <div class="item" data-tool="triangle" title="Triangle Tool">
+                    <img src="../images/icons/triangle.png" alt="">
+                </div>
+            </div>
+            <div class="group tools">
+                <div class="item" data-tool="pencil" title="Pencil Tool">
+                    <img src="../images/icons/pencil.png" alt="">
+                </div>
+                <div class="item" data-tool="brush" title="Brush Tool">
+                    <img src="../images/icons/brush.png" alt="">
+                </div>
+                <div class="item" data-tool="paint-bucket" title="Paint-Bucket Tool">
+                    <img src="../images/icons/paint-bucket.png" alt="">
+                </div>
+                <div class="item" data-tool="eraser" title="Eraser Tool">
+                    <img src="../images/icons/eraser.png" alt="">
+                </div>
+            </div>
+            <div class="group linewidths">
+                <div class="item" data-line-width="1" title="1 Pixel">
+                    <div class="linewidth" style="width: 1px; height: 1px;"></div>
+                </div>
+                <div class="item" data-line-width="2" title="2 Pixel">
+                    <div class="linewidth" style="width: 2px; height: 2px;"></div>
+                </div>
+                <div class="item" data-line-width="3" title="3 Pixel">
+                    <div class="linewidth" style="width: 3px; height: 3px;"></div>
+                </div>
+                <div class="item" data-line-width="4" title="4 Pixel">
+                    <div class="linewidth" style="width: 4px; height: 4px;"></div>
+                </div>
+                <div class="item" data-line-width="5" title="5 Pixel">
+                    <div class="linewidth" style="width: 5px; height: 5px;"></div>
+                </div>
             </div>
         </div>
-        <script>
-            document.querySelector('body').addEventListener('mousemove', eyeball);
-            function eyeball(){
-                var eye = document.querySelectorAll('.eye');
-                eye.forEach(function(eye){
-                    let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
-                    let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
-                    let radian = Math.atan2(event.pageX - x, event.pageY - y);
-                    let rot = (radian * (180 / Math.PI) * -1) + 270;
-                    eye.style.transform = "rotate(" + rot + "deg)";
-                })
-            }
-        </script>
+        <canvas id="canvas" width="640" height="480"></canvas>
+        <div class="toolbox right">
+            <div class="group swatches"></div>
+        </div>
     </body>
 </html>

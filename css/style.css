@@ -1,75 +1,52 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #5d3800;
+    margin: 0px;
+    background-color: #283333;
 }
-.face{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: #ffcd00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.face::before{
-    content: '';
+.toolbox{
+    height: 100vh;
     position: absolute;
-    top: 180px;
-    width: 150px;
-    height: 70px;
-    background: #b57700;
-    border-bottom-left-radius: 70px;
-    border-bottom-right-radius: 70px;
-    transition: 0.5s;
+    background-color: #3a4b4b;
+    width: 50px;
 }
-.face:hover::before{
-    top: 210px;
-    width: 150px;
-    height: 20px;
-    background: #b57700;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.toolbox .group{
+    border-bottom: thin solid gray;
 }
-.face:active::before{
-    top: 210px;
-    width: 150px;
-    height: 70px;
-    background: rgba(181, 119, 0, 0);
-    border: solid 15px #b57700;
-    border-color: #b57700 transparent transparent;
-    border-radius: 50%/70px 70px 0 0;
+.toolbox .group .item{
+    width: 24px;
+    height: 24px;
+    margin: 10px;
 }
-.eyes{
+.toolbox .group .item:hover{
+    background-color: #4b6161;
+    cursor: pointer;
+}
+.toolbox .group .item img{
+    width: 100%;
+    filter: invert();
+}
+.toolbox .group.linewidths .item{
     position: relative;
-    top: -40px;
-    display: flex;
 }
-.eyes .eye{
-    position: relative;
-    width: 80px;
-    height: 80px;
-    display: block;
-    background: #fff;
-    margin: 0 15px;
-    border-radius: 50%;
-}
-.eyes .eye::before{
-    content: '';
+.toolbox .group.linewidths .linewidth{
     position: absolute;
-    top: 25%;
-    left: 4px;
-    transform: translateY(-50%,-50%);
-    width: 40px;
-    height: 40px;
-    background: #333;
+    background-color: white;
     border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.toolbox.left{
+    left: 0px;
+    top: 0px;
+}
+.toolbox.right{
+    right: 0px;
+    top: 0px;
+}
+#canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
 }
