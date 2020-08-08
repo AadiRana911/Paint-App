@@ -6,19 +6,19 @@ body{
     height: 100vh;
     position: absolute;
     background-color: #3a4b4b;
-    width: 50px;
 }
 .toolbox .group{
     border-bottom: thin solid gray;
 }
 .toolbox .group .item{
-    width: 24px;
-    height: 24px;
-    margin: 10px;
-}
-.toolbox .group .item:hover{
-    background-color: #4b6161;
+    width: 15px;
+    height: 15px;
+    padding: 8px;
     cursor: pointer;
+
+}
+.toolbox .group .item:hover, .toolbox .group .item.active{
+    background-color: #4b6161;
 }
 .toolbox .group .item img{
     width: 100%;
@@ -42,6 +42,12 @@ body{
 .toolbox.right{
     right: 0px;
     top: 0px;
+}
+.toolbox .group.swatches .item .swatch{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
 }
 #canvas{
     position: absolute;

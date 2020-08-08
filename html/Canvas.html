@@ -6,6 +6,7 @@
         <title>Canvas</title>
         <!-- <meta http-equiv="refresh" content="5"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
@@ -47,7 +48,7 @@
                 </div>
             </div>
             <div class="group linewidths">
-                <div class="item" data-line-width="1" title="1 Pixel">
+                <div class="item active" data-line-width="1" title="1 Pixel">
                     <div class="linewidth" style="width: 1px; height: 1px;"></div>
                 </div>
                 <div class="item" data-line-width="2" title="2 Pixel">
@@ -66,7 +67,46 @@
         </div>
         <canvas id="canvas" width="640" height="480"></canvas>
         <div class="toolbox right">
-            <div class="group swatches"></div>
+            <div class="group swatches">
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ffffff;"></div>
+                </div>
+                <div class="item active" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #000000;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ff0000;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #00ff00;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #0000ff;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #00ffff;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ffff00;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ff00ff;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ff6224;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #722000;"></div>
+                </div>
+                <div class="item" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ff53e2;"></div>
+                </div>
+                <div class="item color-picker" data-color="#ffffff">
+                    <div class="swatch" style="background-color: #ff53e2;"></div>
+                </div>
+            </div>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script src="../javascript/main.js"></script>
 </html>
