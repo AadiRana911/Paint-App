@@ -28,7 +28,12 @@ export default class Paint{
     }
     onMouseMove(e){
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas);
-        console.log(this.currentPos)
+        console.log(this.currentPos);
+
+        switch(this.tool){
+            case Tool.TOOL_LINE:
+                break;
+        }
     }
     onMouseUp(e){
         this.canvas.onmousemove = null;
