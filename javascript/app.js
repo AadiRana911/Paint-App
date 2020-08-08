@@ -1,4 +1,9 @@
 import Tool from './tool.class.js';
+import Paint from './paint.class.js';
+
+var paint = new Paint('canvas');
+paint.activeTool = Tool.TOOL_LINE;
+paint.init();
 
 document.querySelectorAll("[data-command]").forEach(
     item => {
@@ -15,6 +20,7 @@ document.querySelectorAll("[data-tool]").forEach(
             item.classList.toggle("active");
 
             let selectedTool = item.getAttribute("data-tool");
+            paint.activeTool = selectedTool;
             switch(selectedTool){
                 case Tool.TOOL_CIRCLE:
                 case Tool.TOOL_RECTANGLE:
