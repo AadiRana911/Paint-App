@@ -32,11 +32,15 @@ export default class Paint{
 
         switch(this.tool){
             case Tool.TOOL_LINE:
+                this.drawShape();
                 break;
         }
     }
     onMouseUp(e){
         this.canvas.onmousemove = null;
         document.onmouseup = null
+    }
+    drawshape(){
+        
     }
 }
