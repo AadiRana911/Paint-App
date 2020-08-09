@@ -20,6 +20,9 @@ export default class Paint{
         this.canvas.onmousedown = e => this.onMouseDown(e);
     }
     onMouseDown(e){
+
+        //saving sketch 
+        this.saveData = this.context.getImageData(0, 0,this.canvas.clientWidth, this.canvas.clientHeight);
         this.canvas.onmousemove = e => this.onMouseMove(e);
         document.onmouseup = e => this.onMouseUp(e);
 
@@ -32,6 +35,9 @@ export default class Paint{
 
         switch (this.tool){
             case Tool.TOOL_LINE:
+            case Tool.TOOL_RECTANGLE:
+            case Tool.TOOL_CIRCLE:
+            case Tool.TOOL_TRIANGLE:
                 this.drawShape();
                 break;
             default:
@@ -43,10 +49,16 @@ export default class Paint{
         document.onmouseup = null
     }
     drawShape(){
-        //creating line through current pos
+
+        this.context.putImageData(this.saveData,0 ,0);
+       
+        //creating line(shapes) through current pos
         this.context.beginPath();
+
+        if(this.tool == TOOL_LINE){
         this.context.moveTo(this.startPos.x, this.startPos.y);
         this.context.lineTo(this.currentPos.x, this.currentPos.y);
+        }
         this.context.stroke();
     }
 }
