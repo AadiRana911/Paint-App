@@ -70,7 +70,15 @@ export default class Paint{
             //Circle measurements (getting angle of arc in radians) 
             this.context.arc(this.startPos.x, this.startPos.y, distance, 0, 2 *Math.PI, false);
         }
-        
+        else if(this.tool == Tool.TOOL_TRIANGLE){
+            //top coordinate calculates height
+            this.context.moveTo((this.startPos.x + (this.currentPos.x - this.startPos.x) / 2), this.startPos.y);
+            //left coordinate
+            this.context.lineTo(this.startPos.x, this.currentPos.y);
+            //right coordinate
+            this.context.lineTo(this.currentPos.x, this.currentPos.y);
+            this.context.closePath();
+        }
         this.context.stroke();
     }
 }
