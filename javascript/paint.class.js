@@ -1,6 +1,7 @@
 import Tool from './tool.class.js';
 import Point from './point.model.js';
-import { getMouseCoordsOnCanvas, findDistance } from './utility.js'
+import { getMouseCoordsOnCanvas } from './utility.js';
+import { findDistance} from './new-util.js';
 export default class Paint{
     
     constructor(canvasId){
