@@ -3,6 +3,7 @@ import Paint from './paint.class.js';
 
 var paint = new Paint('canvas');
 paint.activeTool = Tool.TOOL_LINE;
+paint.lineWidth = 4;
 paint.init();
 
 document.querySelectorAll("[data-command]").forEach(
@@ -47,6 +48,10 @@ document.querySelectorAll("[data-line-width]").forEach(
         item.addEventListener("click", e => {
             document.querySelector("[data-line-width].active").classList.toggle("active");
             item.classList.toggle("active"); 
+
+            let lineWidth = data.getAttribute("data-line-width");
+            console.log(lineWidth)
+            paint.lineWidth = lineWidth;
         });
     }
 );
