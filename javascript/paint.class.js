@@ -56,6 +56,9 @@ export default class Paint{
             //fill color
             new Fill(this.canvas, this.startPos, this.color);
         }
+        else if(this.tool == Tool.TOOL_ERASER){
+            this.context.clearRect(this.startPos.x, this.startPos.y, this._brushSize, this._brushSize);
+        }
     }
     onMouseMove(e){
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas);
@@ -72,6 +75,9 @@ export default class Paint{
                 break;
             case Tool.TOOL_BRUSH:
                 this.drawFreeLine(this._brushSize);
+            case Tool.TOOL_ERASER:
+                this.context.clearRect(this.currentPos.x, this.currentPos.y, this._brushSize, this._brushSize);
+                break;
             default:
                 break;
         }
