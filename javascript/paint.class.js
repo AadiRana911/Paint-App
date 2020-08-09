@@ -30,9 +30,11 @@ export default class Paint{
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas);
         console.log(this.currentPos);
 
-        switch(this.tool){
+        switch (this.tool){
             case Tool.TOOL_LINE:
                 this.drawShape();
+                break;
+            default:
                 break;
         }
     }
@@ -40,7 +42,11 @@ export default class Paint{
         this.canvas.onmousemove = null;
         document.onmouseup = null
     }
-    drawshape(){
-        
+    drawShape(){
+        //creating line through current pos
+        this.context.beginPath();
+        this.context.moveTo(this.startPos.x, this.startPos.y);
+        this.context.lineTo(this.currentPos.x, this.currentPos.y);
+        this.context.stroke();
     }
 }
