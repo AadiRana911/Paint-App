@@ -69,7 +69,7 @@ export default class Paint{
             let distance = findDistance(this.startPos, this.currentPos);
             //Circle measurements (getting angle of arc in radians) 
             this.context.arc(this.startPos.x, this.startPos.y, distance, 0, 2 *Math.PI, false);
-
+            console.log("Hello");
         }
         this.context.stroke();
     }
