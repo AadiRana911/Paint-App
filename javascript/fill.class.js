@@ -11,7 +11,6 @@ export default class Fill{
         this.fillStack = [];
 
         this.floodFill(point, targetColor, fillColor);
-        
         this.fillColor();
     }
 
