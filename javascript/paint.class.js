@@ -1,6 +1,6 @@
 import Tool from './tool.class.js';
 import Point from './point.model.js';
-import { getMouseCoordsOnCanvas  } from './utility.js';
+import { getMouseCoordsOnCanvas } from './utility.js';
 import { findDistance} from './new-util.js';
 export default class Paint{
     
@@ -69,8 +69,8 @@ export default class Paint{
             let distance = findDistance(this.startPos, this.currentPos);
             //Circle measurements (getting angle of arc in radians) 
             this.context.arc(this.startPos.x, this.startPos.y, distance, 0, 2 *Math.PI, false);
-            console.log("Hello");
         }
+        
         this.context.stroke();
     }
 }
