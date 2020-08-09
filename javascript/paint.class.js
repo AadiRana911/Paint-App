@@ -16,6 +16,20 @@ export default class Paint{
         console.log(this.tool);
     }
 
+    /**
+     * @param {string | number} lineWidth
+     */
+    set lineWidth(lineWidth){
+        this._lineWidth = lineWidth;
+        this.context.lineWidth = this._lineWidth;
+    }
+
+    set brushSize(brushSize){
+        this._brushSize = brushSize;
+
+    }
+
+
     init(){
         this.canvas.onmousedown = e => this.onMouseDown(e);
     }
@@ -28,7 +42,8 @@ export default class Paint{
 
         this.startPos = getMouseCoordsOnCanvas(e, this.canvas);
 
-        if(this.tool == Tool.TOOL_PENCIL){
+        if(this.tool == Tool.TOOL_PENCIL || this.tool == Tool.TOOL_BRUSH){
+            this.context.beginPath();
             this.context.moveTo(this.startPos.x,this.startPos.y);
         }
     }
@@ -44,7 +59,10 @@ export default class Paint{
                 this.drawShape();
                 break;
             case Tool.TOOL_PENCIL:
-                this.drawFreeLine();
+                this.drawFreeLine(this._lineWidth);
+                break;
+            case Tool.TOOL_BRUSH:
+                this.drawFreeLine(this._brushSize);
             default:
                 break;
         }
@@ -86,7 +104,8 @@ export default class Paint{
         this.context.stroke();
     }
 
-    drawFreeLine(){
+    drawFreeLine(lineWidth){
+        this.lineWidth = lineWidth;
         this.context.lineTo(this.currentPos.x,this.currentPos.y);
         this.context.stroke();
     }
