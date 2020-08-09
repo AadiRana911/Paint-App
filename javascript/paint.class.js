@@ -1,5 +1,4 @@
 import Tool from './tool.class.js';
-import Point from './point.model.js';
 import { getMouseCoordsOnCanvas } from './utility.js';
 import { findDistance} from './new-util.js';
 export default class Paint{
@@ -28,7 +27,10 @@ export default class Paint{
         document.onmouseup = e => this.onMouseUp(e);
 
         this.startPos = getMouseCoordsOnCanvas(e, this.canvas);
-        console.log(this.startPos)
+
+        if(this.tool == Tool.TOOL_PENCIL){
+            this.context.moveTo(this.startPos.x,this.startPos.y);
+        }
     }
     onMouseMove(e){
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas);
@@ -41,6 +43,8 @@ export default class Paint{
             case Tool.TOOL_TRIANGLE:
                 this.drawShape();
                 break;
+            case Tool.TOOL_PENCIL:
+                this.drawFreeLine();
             default:
                 break;
         }
@@ -81,4 +85,10 @@ export default class Paint{
         }
         this.context.stroke();
     }
+
+    drawFreeLine(){
+        this.context.lineTo(this.currentPos.x,this.currentPos.y);
+        this.context.stroke();
+    }
+
 }
