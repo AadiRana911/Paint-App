@@ -10,7 +10,9 @@ export default class Fill{
         const fillColor = this.hexToRgba(color);
         this.fillStack = [];
 
-        this.floodFill(point, targetColor, fillColor)
+        this.floodFill(point, targetColor, fillColor);
+        
+        this.fillColor();
     }
 
     floodFill(point, targetColor, fillColor){

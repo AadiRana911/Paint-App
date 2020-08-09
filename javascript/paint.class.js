@@ -54,7 +54,7 @@ export default class Paint{
             this.context.moveTo(this.startPos.x,this.startPos.y);
         }else if(this.tool == Tool.TOOL_PAINT_BUCKET){
             //fill color
-            new Fill(this.canvas, this.startPos, this.color)
+            new Fill(this.canvas, this.startPos, this.color);
         }
     }
     onMouseMove(e){
