@@ -1,6 +1,7 @@
 import Tool from './tool.class.js';
 import { getMouseCoordsOnCanvas } from './utility.js';
 import { findDistance} from './new-util.js';
+import Fill from './fill.class.js';
 export default class Paint{
     
     constructor(canvasId){
@@ -24,11 +25,18 @@ export default class Paint{
         this.context.lineWidth = this._lineWidth;
     }
 
+    /**
+     * @param {string | number} brushSize
+     */
     set brushSize(brushSize){
         this._brushSize = brushSize;
 
     }
 
+    set selectedColor(color){
+        this.color = color;
+        this.context.strokeStyle = this.color;
+    }
 
     init(){
         this.canvas.onmousedown = e => this.onMouseDown(e);
@@ -45,11 +53,13 @@ export default class Paint{
         if(this.tool == Tool.TOOL_PENCIL || this.tool == Tool.TOOL_BRUSH){
             this.context.beginPath();
             this.context.moveTo(this.startPos.x,this.startPos.y);
+        }else if(this.tool == Tool.TOOL_PAINT_BUCKET){
+            //fill color
+            new Fill(this.canvas, this.startPos, this.color)
         }
     }
     onMouseMove(e){
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas);
-        console.log(this.currentPos);
 
         switch (this.tool){
             case Tool.TOOL_LINE:
@@ -66,6 +76,7 @@ export default class Paint{
             default:
                 break;
         }
+        
     }
     onMouseUp(e){
         this.canvas.onmousemove = null;

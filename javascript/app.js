@@ -5,6 +5,7 @@ var paint = new Paint('canvas');
 paint.activeTool = Tool.TOOL_LINE;
 paint.lineWidth = 1;
 paint.brushSize = 4;
+paint.selectedColor = "#000000"
 paint.init();
 
 document.querySelectorAll("[data-command]").forEach(
@@ -73,6 +74,9 @@ document.querySelectorAll("[data-color]").forEach(
         item.addEventListener("click", e => {
             document.querySelector("[data-color].active").classList.toggle("active");
             item.classList.toggle("active"); 
+
+            let selectedColor = item.getAttribute("data-color");
+            paint.selectedColor = selectedColor;
         });
     }
 );
