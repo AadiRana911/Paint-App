@@ -17,8 +17,8 @@
             while($row=mysqli_fetch_assoc($query)){
                 $dbEmailId=$row['emailId'];  
                 $dbPassword=$row['password']; 
-                echo $dbEmailId;
-                echo $dbPassword;
+                echo $dbEmailId, "<br>";
+                echo $dbPassword, "<br>";
                 echo password_verify($password, $dbPassword);
 
             }
@@ -37,3 +37,8 @@
         echo "All fields are mandatory";
     }
 ?>
+<html>
+    <body>
+        <input type="text" value = "<?php echo 'hello'?>">
+    </body>
+</html>
