@@ -13,7 +13,8 @@
     $pass = $_POST['password'];
     $cPass = $_POST['confirmPassword'];
     if($pass == $cPass){
-        $sql = "INSERT INTO users (emailId,name,password) VALUES ('$Email','$Name','$pass')";
+        $hash = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 11));
+        $sql = "INSERT INTO users (emailId,name,password) VALUES ('$Email','$Name','$hash')";
         if(!mysqli_query($con,$sql)){
             echo $Name, "\n";
             echo $Email, "\n";

@@ -10,14 +10,20 @@
         if(!mysqli_select_db($con,'users')){  
             echo 'database not selected';  
         }
-        $query = mysqli_query($con, "SELECT * FROM users WHERE emailId='$email' AND password='$password'");
+        $query = mysqli_query($con, "SELECT * FROM users WHERE emailId='$email'");
         $numrows=mysqli_num_rows($query);
+        echo $numrows;
         if($numrows != 0){
             while($row=mysqli_fetch_assoc($query)){
                 $dbEmailId=$row['emailId'];  
                 $dbPassword=$row['password']; 
+                echo $dbEmailId;
+                echo $dbPassword;
+                echo password_verify($password, $dbPassword);
+
             }
-            if($email == $dbEmailId && $password == $dbPassword){
+            if($email == $dbEmailId && password_verify($password, $dbPassword)){
+                echo "done";
                 session_start();  
                 $_SESSION['sess_user']=$user;  
   
