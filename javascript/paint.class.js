@@ -123,8 +123,8 @@ export default class Paint{
         this.context.stroke();
     }
     undoPaint(){
-        console.log(this.undoStack.length);
-        console.log(this.undoStack);
+        // console.log(this.undoStack.length);
+        // console.log(this.undoStack);
         if(this.undoStack.length > 0){
         this.context.putImageData(this.undoStack[this.undoStack.length - 1], 0, 0);
         this.undoStack.pop();
