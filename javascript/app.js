@@ -11,7 +11,11 @@ paint.init();
 document.querySelectorAll("[data-command]").forEach(
     item => {
         item.addEventListener("click", e => {
-            console.log(item.getAttribute("data-command"));
+            let command = item.getAttribute("data-command");
+
+            if (command === 'undo'){
+                paint.undoPaint();
+            }
         });
     }
 );
