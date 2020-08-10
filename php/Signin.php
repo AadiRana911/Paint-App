@@ -15,8 +15,8 @@
         echo $numrows;
         if($numrows != 0){
             while($row=mysqli_fetch_assoc($query)){
-                $dbEmailId=$row['emailId'];  
-                $dbPassword=$row['password']; 
+                $dbEmailId=$row['emailId'];
+                $dbPassword=$row['password'];
                 echo $dbEmailId;
                 echo $dbPassword;
                 echo password_verify($password, $dbPassword);
